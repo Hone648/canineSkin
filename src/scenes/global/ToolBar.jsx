@@ -1,38 +1,67 @@
 import AppBar from '@mui/material/AppBar';
-import { Box, Toolbar, Typography, Button, useTheme } from '@mui/material';
+import {
+  Grid,
+  Box,
+  Toolbar,
+  Typography,
+  Button,
+  useTheme,
+} from '@mui/material';
 import { tokens } from '../../theme';
-
-const handleClick = (buttonName) => {
-  console.log('You clicked ' + buttonName);
-};
+import { useState } from 'react';
 
 const ToolBar = () => {
+  const [selected, setSelected] = useState('About Us');
+  const handleClick = (page) => {
+    setSelected(page);
+  };
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const pages = ['About Us', 'Cremes', 'Shampoos', 'Sprays', 'Contact Us'];
+  const pages = [
+    'About Us',
+    'Topical',
+    'Shampoos',
+    'Conditioners',
+    'Oral Medication',
+    'Supplements',
+  ];
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Grid container display="flex" sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar
           sx={{
-            display: { xs: 'none', sm: 'flex' },
+            display: { sm: 'flex' },
             justifyContent: 'space-around',
+            flexWrap: 'wrap',
           }}
         >
           {pages.map((page) => (
             <Button key={page} onClick={() => handleClick(page)}>
-              <Typography
-                textAlign="center"
-                variant="h4"
-                color={colors.blueAccent[900]}
+              <Grid
+                item
+                minHeight="45px"
+                display="flex"
+                alignItems="center"
+                xs={12}
               >
-                {page}
-              </Typography>
+                <Typography
+                  textAlign="center"
+                  variant="h4"
+                  color={
+                    selected === page
+                      ? colors.greenAccent[600]
+                      : colors.blueAccent[900]
+                  }
+                >
+                  {page}
+                </Typography>
+              </Grid>
             </Button>
           ))}
         </Toolbar>
       </AppBar>
-    </Box>
+    </Grid>
   );
 };
 export default ToolBar;

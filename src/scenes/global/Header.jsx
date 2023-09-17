@@ -1,26 +1,26 @@
-import { Box, IconButton, Typography } from '@mui/material';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import { Box, Grid, IconButton, Typography } from '@mui/material';
 import Logo from '../../images/canineSkinLogo.png';
+import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 
 const Header = () => {
   return (
-    <Box display="flex" justifyContent="space-between" p={2}>
-      {/* {Search Bar } */}
-      <Box mb={0} display="flex">
-        <img src={Logo} alt="logo" width="300px" />
-        <Box m={1} mb={0} sx={{ display: { xs: 'none', sm: 'flex' } }}>
-          <Typography mb={0} pt={3} paragraph>
+    <Grid container justifyContent="space-between" m={1}>
+      <Grid item xs={11} display="flex" alignItems="flex-end">
+        <Box>
+          <img src={Logo} alt="logo" width="300px" />
+        </Box>
+        <Box p={1} sx={{ display: { xs: 'none', sm: 'flex' } }}>
+          <Typography>
             Product Reviews Keeping Good Dogs from Bad Skin
           </Typography>
         </Box>
-      </Box>
-      {/* {ICONS} */}
-      <Box display="flex">
+      </Grid>
+      <Grid item xs={1} display="flex" justifyContent="flex-end">
         <IconButton size="large">
-          <PersonOutlineOutlinedIcon />
+          <SubscriptionsIcon />
         </IconButton>
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 };
 

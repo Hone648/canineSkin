@@ -3,6 +3,7 @@ import Header from './scenes/global/Header';
 import { Grid, CssBaseline, ThemeProvider, Box } from '@mui/material';
 import ToolBar from './scenes/global/ToolBar';
 import About from './scenes/About';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -13,14 +14,12 @@ function App() {
         <CssBaseline />
         <div className="app">
           <Grid container>
-            <Grid container>
-              <Grid item xs={12}>
-                <Header />
-                <ToolBar />
-              </Grid>
-            </Grid>
+            <Header />
+            <ToolBar />
             <main className="content">
-              <About />
+              <Routes>
+                <Route path="/" element={<About />}></Route>
+              </Routes>
             </main>
           </Grid>
         </div>
