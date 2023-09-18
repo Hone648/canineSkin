@@ -3,7 +3,9 @@
 html,
 body,
 #root,
-.app,
+.app {
+  background-color: #f0f0f0;
+}
 .content {
   height: 100%;
   width: 100%;

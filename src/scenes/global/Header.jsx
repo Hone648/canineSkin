@@ -1,8 +1,12 @@
 import { Box, Grid, IconButton, Typography } from '@mui/material';
 import Logo from '../../images/canineSkinLogo.png';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+import { useTheme } from '@emotion/react';
+import { tokens } from '../../theme';
 
 const Header = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   return (
     <Grid container justifyContent="space-between" m={1}>
       <Grid item xs={11} display="flex" alignItems="flex-end">

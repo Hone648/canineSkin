@@ -5,7 +5,7 @@ const Title = ({ title, subtitle }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
-    <Box>
+    <Box xs={12} m={2} px={9} pt={2} textAlign="left">
       <Typography
         color={colors.blueAccent[400]}
         sx={{ fontWeight: 'bold' }}

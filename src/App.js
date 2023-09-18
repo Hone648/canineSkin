@@ -4,6 +4,7 @@ import { Grid, CssBaseline, ThemeProvider, Box } from '@mui/material';
 import ToolBar from './scenes/global/ToolBar';
 import About from './scenes/About';
 import { Routes, Route } from 'react-router-dom';
+import Topical from './scenes/Topical';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -18,7 +19,8 @@ function App() {
             <ToolBar />
             <main className="content">
               <Routes>
-                <Route path="/" element={<About />}></Route>
+                <Route path="/" element={<About />} />
+                <Route path="/topical" element={<Topical />} />
               </Routes>
             </main>
           </Grid>
