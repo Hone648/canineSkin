@@ -1,6 +1,4 @@
-import { Typography, Box, Grid, useTheme } from '@mui/material';
-import { tokens } from '../theme';
-import Title from './global/Title';
+import { Box, Typography } from '@mui/material';
 import {
   title,
   opening,
@@ -13,71 +11,41 @@ import {
   ending2,
   ending3,
 } from '../data/about';
+import Title from './global/Title';
+import { useTheme } from '@emotion/react';
+import { tokens } from '../theme';
 
 const About = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const Statement = ({ content, variant }) => {
-    return (
-      <Box>
-        <Typography
-          variant={variant}
-          px={9}
-          pt={2}
-          textAlign="left"
-          sx={{ fontWeight: 'bold' }}
-        >
-          {content}
-        </Typography>
-      </Box>
-    );
-  };
-  const Paragraph = ({ content }) => {
-    return (
-      <Box>
-        <Typography variant="h3" px={9} pt={2} textAlign="left">
-          {content}
-        </Typography>
-      </Box>
-    );
-  };
 
-  return (
-    <Grid container display="flex">
-      <Box m={5} my={2} sx={{ backgroundColor: colors.grey[800] }}>
-        <Grid item pb={4} m={1}>
-          <Title title="Welcome"></Title>
-        </Grid>
-        <Box>
-          <Paragraph content={title} />
-          <Paragraph content={opening} />
-          <Typography
-            variant="h3"
-            px={9}
-            pt={2}
-            textAlign="left"
-            sx={{ fontWeight: 'bold' }}
-          >
-            Our Passion for Canine Well-being
-          </Typography>
-          <Typography variant="h3" px={9} pt={2} textAlign="left">
-            {passionStatement}
-          </Typography>
-          <Statement content="Why Choose Canine Skin" variant={'h3'} />
-          <Statement content="Expertise:" variant={'h4'} />
-          <Paragraph content={expertise} />
-          <Statement content="Transparency:" variant={'h4'} />
-          <Paragraph content={transparency} />
-          <Statement content="Comprehensive Coverage:" variant={'h4'} />
-          <Paragraph content={comprehensiveCoverage} />
-          <Statement content="User-Focused:" variant={'h4'} />
-          <Paragraph content={userFocused} />
-          <Paragraph content={ending1} />
-          <Paragraph content={ending2} />
-          <Paragraph content={ending3} />
-        </Box>
+  const Item = ({ content }) => {
+    return (
+      <Box>
+        <Typography variant="h3" paragraph sx={{ textIndent: '35px' }}>
+          {content}
+        </Typography>
       </Box>
-    </Grid>
+    );
+  };
+  return (
+    <Box m={5} p={2} my={2} sx={{ backgroundColor: colors.grey[800] }}>
+      <Title title="Welcome" />
+      <Box mb={0} pt={3} px={9}>
+        <Typography sx={{ mb: 8, fontWeight: 'bold' }} variant="h3" paragraph>
+          {title}
+        </Typography>
+        <Item content={opening} />
+        <Item content={passionStatement} />
+        <Item content={expertise} />
+        <Item content={transparency} />
+        <Item content={comprehensiveCoverage} />
+        <Item content={userFocused} />
+        <Item content={ending1} />
+        <Item content={ending2} />
+        <Item content={ending3} />
+      </Box>
+    </Box>
   );
 };
 export default About;

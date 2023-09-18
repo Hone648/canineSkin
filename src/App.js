@@ -1,14 +1,14 @@
-import { ColorModeContext, useMode, tokens } from './theme';
+import { ColorModeContext, useMode } from './theme';
 import Header from './scenes/global/Header';
-import { Grid, CssBaseline, ThemeProvider, Box } from '@mui/material';
+import { Grid, CssBaseline, ThemeProvider } from '@mui/material';
 import ToolBar from './scenes/global/ToolBar';
 import About from './scenes/About';
 import { Routes, Route } from 'react-router-dom';
 import Topical from './scenes/Topical';
+import Dietary from './scenes/Dietary';
 
 function App() {
   const [theme, colorMode] = useMode();
-  const colors = tokens(theme.palette.mode);
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -21,6 +21,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<About />} />
                 <Route path="/topical" element={<Topical />} />
+                <Route path="/dietary" element={<Dietary />} />
               </Routes>
             </main>
           </Grid>

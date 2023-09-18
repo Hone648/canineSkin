@@ -49,7 +49,7 @@ const ToolBar = () => {
           {pages.map((page) => (
             <Link key={page.title} to={page.to}>
               <Button key={page.title} onClick={() => handleClick(page)}>
-                <Grid item minHeight="45px" display="flex" alignItems="center">
+                <Grid item display="flex" alignItems="center">
                   <Typography
                     textAlign="center"
                     variant="h4"
