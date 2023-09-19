@@ -26,10 +26,15 @@ const About = () => {
     );
   };
   return (
-    <Box m={5} p={2} my={2}>
-      <Title title="Welcome" />
-      <Box mb={0} pt={3} px={9}>
-        <Typography sx={{ mb: 8, fontWeight: 'bold' }} variant="h3" paragraph>
+    <Box className="about-container">
+      <Box className="about-title-wrapper">
+        <Title title="Welcome" />
+      </Box>
+      <Box
+        className="about-content-wrapper"
+        sx={{ mx: { xs: 2, md: 8, xl: 20 } }}
+      >
+        <Typography paragraph variant="h3" sx={{ my: 9, fontWeight: 'bold' }}>
           {title}
         </Typography>
         <Item content={opening} />

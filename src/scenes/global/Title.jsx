@@ -9,16 +9,18 @@ const Title = ({ title, subtitle }) => {
       className="title-container"
       textAlign="left"
       sx={{
-        my: 2,
         mx: {
-          xs: 2,
-          md: 4,
-          lg: 6,
-          xl: 8,
+          xs: 1,
+          md: 2,
+          lg: 8,
+        },
+        mt: {
+          xs: 1,
+          lg: 10,
         },
       }}
     >
-      <Box className="title-wrapper" mb={0}>
+      <Box className="title-wrapper">
         <Typography
           color={colors.blueAccent[400]}
           sx={{ fontWeight: 'bold' }}

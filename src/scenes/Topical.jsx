@@ -34,10 +34,15 @@ const Topical = () => {
     );
   };
   return (
-    <Box justifyContent="center" m={5} p={2} my={2}>
-      <Title title="Topicals" />
-      <Box mb={0} pt={3} px={9}>
-        <Typography variant="h3" paragraph sx={{ textIndent: '20px' }}>
+    <Box className="topical-container">
+      <Box className="topical-title-wrapper">
+        <Title title="Topicals" subtitle="Sep 2023" />
+      </Box>
+      <Box
+        className="topical-content-wrapper"
+        sx={{ mx: { xs: 2, lg: 8, xl: 20 } }}
+      >
+        <Typography variant="h3" paragraph my={9} sx={{ textIndent: '20px' }}>
           {intro}
         </Typography>
         <Item item={item1} content={item1Content} />
@@ -52,7 +57,7 @@ const Topical = () => {
         <Item item={item3} content={item3Content} />
         <Item item={item4} content={item4Content} />
         <Item item={item5} content={item5Content} />
-        <Typography variant="h3" paragraph sx={{ textIndent: '20px' }}>
+        <Typography paragraph variant="h3" sx={{ textIndent: '20px', mt: 5 }}>
           {conclusion}
         </Typography>
       </Box>

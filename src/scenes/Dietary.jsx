@@ -38,12 +38,12 @@ const Dietary = () => {
   };
   return (
     <Box className="dietary-container">
-      <Box className="title-wrapper">
+      <Box className="dietary-title-wrapper">
         <Title title="Dietary" subtitle="Sep 2023" />
       </Box>
       <Box
         className="dietary-content-wrapper"
-        sx={{ mx: { xs: 2, md: 8, xl: 14 } }}
+        sx={{ mx: { xs: 2, md: 8, xl: 20 } }}
       >
         <Typography variant="h3" paragraph sx={{ textIndent: '20px', my: 9 }}>
           {intro}
@@ -56,7 +56,9 @@ const Dietary = () => {
         <Item item={item6} content={item6Content} />
         <Item item={item7} content={item7Content} />
         <Item item={item8} content={item8Content} />
-        <Item content={conclusion} />
+        <Typography paragraph variant="h3" sx={{ textIndent: '20px', mt: 5 }}>
+          {conclusion}
+        </Typography>
       </Box>
     </Box>
   );
