@@ -23,7 +23,7 @@ const Topical = () => {
   const colors = tokens(theme.palette.mode);
   const Item = ({ item, content }) => {
     return (
-      <Box>
+      <Box className="topical-item-wrapper">
         <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
           {item}
         </Typography>

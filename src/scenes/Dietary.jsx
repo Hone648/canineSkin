@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import {
   intro,
   item1,
@@ -20,13 +20,11 @@ import {
   conclusion,
 } from '../data/dietary';
 import Title from './global/Title';
-import { useTheme } from '@emotion/react';
-import { tokens } from '../theme';
 
 const Dietary = () => {
   const Item = ({ item, content }) => {
     return (
-      <Box>
+      <Box className="dietary-item-wrapper">
         <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
           {item}
         </Typography>

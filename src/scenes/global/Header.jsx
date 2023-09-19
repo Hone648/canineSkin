@@ -3,6 +3,7 @@ import Logo from '../../images/canineSkinLogo.png';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import { useTheme } from '@emotion/react';
 import { tokens } from '../../theme';
+import Tooltip from '@mui/material/Tooltip';
 
 const Header = () => {
   const theme = useTheme();
@@ -20,9 +21,11 @@ const Header = () => {
         </Box>
       </Grid>
       <Grid item xs={1} display="flex" justifyContent="flex-end">
-        <IconButton size="large">
-          <SubscriptionsIcon />
-        </IconButton>
+        <Tooltip disableFocusListener title="Subscribe">
+          <IconButton size="large">
+            <SubscriptionsIcon />
+          </IconButton>
+        </Tooltip>
       </Grid>
     </Grid>
   );
