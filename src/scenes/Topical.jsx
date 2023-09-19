@@ -17,18 +17,23 @@ import Title from './global/Title';
 import { useTheme } from '@emotion/react';
 import { tokens } from '../theme';
 import { Link } from 'react-router-dom';
+import { Link as Hyper } from '@mui/material';
 
 const Topical = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const Item = ({ item, content }) => {
+
+  const LinkContent = ({ to, content }) => {
+    return <Link to={to}>{content}</Link>;
+  };
+  const Item = ({ item, content, link }) => {
     return (
       <Box className="topical-item-wrapper">
         <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
           {item}
         </Typography>
         <Typography variant="h3" paragraph sx={{ textIndent: '20px' }}>
-          {content}
+          {content} {link}
         </Typography>
       </Box>
     );
@@ -45,14 +50,18 @@ const Topical = () => {
         <Typography variant="h3" paragraph my={9} sx={{ textIndent: '20px' }}>
           {intro}
         </Typography>
-        <Item item={item1} content={item1Content} />
-        <Link to={'/topical/shampoos'}>
-          <Box m={1}>
-            <Typography color={colors.blueAccent[500]} variant="h3">
-              Our Top Rated Dog Shampoos
-            </Typography>
-          </Box>
-        </Link>
+        <Box className="test">
+          <Item
+            item={item1}
+            content={item1Content}
+            link={
+              <LinkContent
+                to="/topicals/shampoos"
+                content="See our shampoo reviews for more details."
+              />
+            }
+          />
+        </Box>
         <Item item={item2} content={item2Content} />
         <Item item={item3} content={item3Content} />
         <Item item={item4} content={item4Content} />

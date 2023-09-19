@@ -21,9 +21,9 @@ function App() {
             <Box className="content">
               <Routes>
                 <Route path="/" element={<About />} />
-                <Route path="/topical" element={<Topical />} />
+                <Route path="/topicals" element={<Topical />} />
                 <Route path="/dietary" element={<Dietary />} />
-                <Route path="/topical/shampoos" element={<TopDogShampoos />} />
+                <Route path="/topicals/shampoos" element={<TopDogShampoos />} />
               </Routes>
             </Box>
           </Grid>

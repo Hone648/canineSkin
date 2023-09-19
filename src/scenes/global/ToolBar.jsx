@@ -25,7 +25,7 @@ const ToolBar = () => {
     },
     {
       title: 'Topicals',
-      to: '/topical',
+      to: '/topicals',
     },
     {
       title: 'Dietary',
