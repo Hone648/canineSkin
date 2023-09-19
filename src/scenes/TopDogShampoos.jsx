@@ -8,10 +8,7 @@ const TopDogShampoos = () => {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box
-      className="container"
-      sx={{ backgroundColor: colors.grey[800], height: '100vh' }}
-    >
+    <Box className="container">
       <Box
         className="header"
         display="flex"

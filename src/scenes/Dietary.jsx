@@ -37,10 +37,15 @@ const Dietary = () => {
     );
   };
   return (
-    <Box m={5} p={2} my={2}>
-      <Title title="Dietary" />
-      <Box mb={0} pt={3} px={9}>
-        <Typography variant="h3" paragraph sx={{ textIndent: '20px' }}>
+    <Box className="dietary-container">
+      <Box className="title-wrapper">
+        <Title title="Dietary" subtitle="Sep 2023" />
+      </Box>
+      <Box
+        className="dietary-content-wrapper"
+        sx={{ mx: { xs: 2, md: 8, xl: 14 } }}
+      >
+        <Typography variant="h3" paragraph sx={{ textIndent: '20px', my: 9 }}>
           {intro}
         </Typography>
         <Item item={item1} content={item1Content} />

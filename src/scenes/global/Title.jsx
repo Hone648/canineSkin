@@ -5,21 +5,31 @@ const Title = ({ title, subtitle }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
-    <Box xs={12} m={2} px={9} pt={2} textAlign="left">
-      <Typography
-        color={colors.blueAccent[400]}
-        sx={{ fontWeight: 'bold' }}
-        variant="h1"
-      >
-        {title}
-      </Typography>
-      <Typography
-        color={colors.greenAccent[300]}
-        sx={{ fontWeight: 'bold' }}
-        variant="subtitle1"
-      >
-        {subtitle}
-      </Typography>
+    <Box
+      className="title-container"
+      textAlign="left"
+      sx={{
+        my: 2,
+        mx: {
+          xs: 2,
+          md: 4,
+          lg: 6,
+          xl: 8,
+        },
+      }}
+    >
+      <Box className="title-wrapper" mb={0}>
+        <Typography
+          color={colors.blueAccent[400]}
+          sx={{ fontWeight: 'bold' }}
+          variant="h1"
+        >
+          {title}
+        </Typography>
+      </Box>
+      <Box className="subtitle-wrapper" display="flex">
+        <Typography variant="subtitle2">{subtitle}</Typography>
+      </Box>
     </Box>
   );
 };
