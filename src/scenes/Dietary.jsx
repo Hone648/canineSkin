@@ -24,26 +24,23 @@ import { useTheme } from '@emotion/react';
 import { tokens } from '../theme';
 
 const Dietary = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-
   const Item = ({ item, content }) => {
     return (
       <Box>
         <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
           {item}
         </Typography>
-        <Typography variant="h3" paragraph sx={{ textIndent: '35px' }}>
+        <Typography variant="h3" paragraph sx={{ textIndent: '20px' }}>
           {content}
         </Typography>
       </Box>
     );
   };
   return (
-    <Box m={5} p={2} my={2} sx={{ backgroundColor: colors.grey[800] }}>
+    <Box m={5} p={2} my={2}>
       <Title title="Dietary" />
       <Box mb={0} pt={3} px={9}>
-        <Typography variant="h3" paragraph sx={{ textIndent: '35px' }}>
+        <Typography variant="h3" paragraph sx={{ textIndent: '20px' }}>
           {intro}
         </Typography>
         <Item item={item1} content={item1Content} />
@@ -54,6 +51,7 @@ const Dietary = () => {
         <Item item={item6} content={item6Content} />
         <Item item={item7} content={item7Content} />
         <Item item={item8} content={item8Content} />
+        <Item content={conclusion} />
       </Box>
     </Box>
   );

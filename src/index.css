@@ -2,13 +2,15 @@
 
 html,
 body,
-#root,
+#root{
+  background-color: #c2c2c2;
+}
 .app {
   background-color: #f0f0f0;
   font-family: 'Source Sans 3', sans-serif;
 }
 .content {
-  height: 90%;
+  height: 100%;
   width: 100%;
   font-family: 'Source Sans 3', sans-serif;
 }
@@ -16,5 +18,17 @@ body,
 .app {
   display: flex;
   position: relative;
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.content-container {
+  color: blue
+}
+.header-img {
+  mix-blend-mode: darken;
 }
 

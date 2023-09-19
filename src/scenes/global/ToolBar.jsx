@@ -37,12 +37,12 @@ const ToolBar = () => {
     },
   ];
   return (
-    <Grid container display="flex" sx={{ flexGrow: 1 }}>
+    <Box display="flex" sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar
           sx={{
             display: { xs: 'flex' },
-            justifyContent: 'space-around',
+            justifyContent: { xs: 'none', sm: 'space-around' },
             flexWrap: 'wrap',
           }}
         >
@@ -67,7 +67,7 @@ const ToolBar = () => {
           ))}
         </Toolbar>
       </AppBar>
-    </Grid>
+    </Box>
   );
 };
 export default ToolBar;
