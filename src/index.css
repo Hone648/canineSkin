@@ -32,4 +32,6 @@ body,
 .header-img {
   mix-blend-mode: darken;
 }
-
+.dialog-wrapper {
+  width: 400px;
+}
