@@ -12,8 +12,6 @@ import {
   ending3,
 } from '../data/about';
 import Title from './global/Title';
-import { useTheme } from '@emotion/react';
-import { tokens } from '../theme';
 
 const About = () => {
   const Item = ({ content }) => {

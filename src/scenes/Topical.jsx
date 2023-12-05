@@ -14,61 +14,91 @@ import {
   conclusion,
 } from '../data/topical';
 import Title from './global/Title';
-import { useTheme } from '@emotion/react';
-import { tokens } from '../theme';
 import { Link } from 'react-router-dom';
-import { Link as Hyper } from '@mui/material';
+
+const styles = {
+  item: {
+    wrapper: {
+      mt: '2em',
+      fontWeight: 'bolder',
+    },
+    content: {
+      lineHeight: '1.5em',
+      textIndent: '1.5em',
+      mb: 0,
+    },
+  },
+  content: {
+    display: {
+      mx: {
+        xs: 2,
+        lg: 8,
+        xl: 20,
+      },
+    },
+    intro: {
+      textIndent: '1.5em',
+      lineHeight: '1.5em',
+      my: '2.5em',
+    },
+    link: {
+      fontSize: '3em',
+      textDecoration: 'none',
+      color: 'black',
+      '&:hover': { textDecoration: 'underline' },
+    },
+    linkContainer: {
+      my: '2em',
+      textAlign: 'center',
+      width: '100%',
+    },
+  },
+};
 
 const Topical = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-
-  const LinkContent = ({ to, content }) => {
-    return <Link to={to}>{content}</Link>;
-  };
-  const Item = ({ item, content, link }) => {
+  const Item = ({ item, content }) => {
     return (
-      <Box className="topical-item-wrapper">
-        <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
+      <Box>
+        <Typography variant="h3" sx={styles.item.wrapper}>
           {item}
         </Typography>
-        <Typography variant="h3" paragraph sx={{ textIndent: '20px' }}>
-          {content} {link}
+        <Typography variant="h3" paragraph sx={styles.item.content}>
+          {content}
         </Typography>
       </Box>
     );
   };
+
   return (
-    <Box className="topical-container">
-      <Box className="topical-title-wrapper">
+    <Box>
+      <Box>
         <Title title="Topicals" subtitle="Sep 2023" />
       </Box>
-      <Box
-        className="topical-content-wrapper"
-        sx={{ mx: { xs: 2, lg: 8, xl: 20 } }}
-      >
-        <Typography variant="h3" paragraph my={9} sx={{ textIndent: '20px' }}>
-          {intro}
-        </Typography>
-        <Box className="test">
-          <Item
-            item={item1}
-            content={item1Content}
-            link={
-              <LinkContent
-                to="/topicals/shampoos"
-                content="See our shampoo reviews for more details."
-              />
-            }
-          />
+      <Box sx={styles.content.display}>
+        <Box>
+          <Typography variant="h3" sx={styles.content.intro}>
+            {intro}
+          </Typography>
         </Box>
-        <Item item={item2} content={item2Content} />
-        <Item item={item3} content={item3Content} />
-        <Item item={item4} content={item4Content} />
-        <Item item={item5} content={item5Content} />
-        <Typography paragraph variant="h3" sx={{ textIndent: '20px', mt: 5 }}>
-          {conclusion}
-        </Typography>
+        <Item item={item1} content={item1Content} />
+        <Box sx={styles.content.linkContainer}>
+          <Typography>
+            <Link
+              className="link"
+              style={styles.content.link}
+              to="/topicals/shampoos"
+            >
+              Check out our top rated shampoos!
+            </Link>
+          </Typography>
+        </Box>
+        <Box>
+          <Item item={item2} content={item2Content} />
+          <Item item={item3} content={item3Content} />
+          <Item item={item4} content={item4Content} />
+          <Item item={item5} content={item5Content} />
+          <Item content={conclusion} />
+        </Box>
       </Box>
     </Box>
   );
