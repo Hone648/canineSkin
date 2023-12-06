@@ -1,31 +1,38 @@
-import { useTheme } from '@emotion/react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import Radar from '../components/radar';
+import { total } from '../data/radarData';
+import { tokens } from '../theme';
 
-const styles = {
-  container: {
-    mt: 4,
-  },
-  radarWrapper: {
-    height: '250px',
-    justifyContent: 'left',
-    width: '400px',
-  },
-};
 const TopDogShampoos = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+
+  const styles = {
+    container: {
+      height: '100%',
+      mx: '100px',
+      background: colors.greenAccent[400],
+      borderRadius: '50% / 20% 40% 20% 40%',
+    },
+    radarWrapper: {
+      height: '400px',
+      width: '1000px',
+      mb: '3em',
+      mr: '400px',
+    },
+    score: {
+      color: colors.blueAccent[200],
+      fontSize: '3em',
+      flex: 1,
+      pb: '1em',
+    },
+  };
+
   return (
     <Box sx={styles.container}>
-      <Box>
-        <Typography variant="h1">Stupid Dog Shampoo Co.</Typography>
-      </Box>
       <Box display="flex">
         <Box sx={styles.radarWrapper}>
           <Radar />
-        </Box>
-        <Box
-          sx={{ minWidth: '20em', minHeight: '20em', backgroundColor: 'red' }}
-        >
-          <Typography>Box</Typography>
         </Box>
       </Box>
     </Box>

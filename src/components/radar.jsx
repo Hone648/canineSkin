@@ -1,33 +1,37 @@
 import { ResponsiveRadar } from '@nivo/radar';
 import { data } from '../data/radarData';
+import { tokens } from '../theme';
+import { useTheme } from '@mui/material';
 
 const Radar = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   return (
     <ResponsiveRadar
       data={data}
-      keys={['Stupid Dog Shampoo Co.']}
+      keys={['Stupid Dog Shampoo Co.', "Burt's Bees"]}
       indexBy="metric"
-      valueFormat=">-.2f"
-      margin={{ top: 70, right: 80, bottom: 40, left: 80 }}
+      valueFormat=">-.0f"
+      margin={{ top: 30, right: 0, bottom: 0, left: 0 }}
       borderColor={{ from: 'color' }}
-      gridLabelOffset={10}
+      gridLabelOffset={15}
       gridLevels={3}
       dotSize={10}
-      dotColor={{ theme: 'background' }}
-      dotBorderWidth={2}
-      colors={{ scheme: 'purple_orange' }}
+      dotColor={colors.blueAccent[500]}
+      dotBorderWidth={1}
+      colors={colors.blueAccent[100]}
       blendMode="multiply"
       motionConfig="wobbly"
       legends={[
         {
-          anchor: 'bottom-left',
+          anchor: 'right',
           direction: 'column',
-          translateX: -50,
+          translateX: 0,
           translateY: -40,
-          itemWidth: 80,
-          itemHeight: 20,
-          itemTextColor: '#999',
-          symbolSize: 12,
+          itemWidth: -10,
+          itemHeight: 200,
+          itemTextColor: colors.primary,
+          symbolSize: 14,
           symbolShape: 'circle',
           effects: [
             {
