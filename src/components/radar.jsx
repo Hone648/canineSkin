@@ -6,30 +6,38 @@ import { useTheme } from '@mui/material';
 const Radar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  let keys = [
+    'Wahl USA',
+    "Burt's Bees",
+    'Arm & Hammer',
+    'Honest Paws',
+    'Lilian Ruff',
+  ];
   return (
     <ResponsiveRadar
       data={data}
-      keys={['Stupid Dog Shampoo Co.', "Burt's Bees"]}
+      keys={keys}
       indexBy="metric"
       valueFormat=">-.0f"
-      margin={{ top: 30, right: 0, bottom: 0, left: 0 }}
+      margin={{ top: 60, right: 60, bottom: 60, left: 90 }}
       borderColor={{ from: 'color' }}
       gridLabelOffset={15}
       gridLevels={3}
       dotSize={10}
-      dotColor={colors.blueAccent[500]}
+      dotColor={{ from: 'color', modifiers: [] }}
       dotBorderWidth={1}
-      colors={colors.blueAccent[100]}
+      colors={{ scheme: 'pastel1' }}
       blendMode="multiply"
       motionConfig="wobbly"
       legends={[
         {
-          anchor: 'right',
+          anchor: 'top-left',
           direction: 'column',
-          translateX: 0,
-          translateY: -40,
+          translateX: -75,
+          translateY: 10,
           itemWidth: -10,
-          itemHeight: 200,
+          itemHeight: 20,
           itemTextColor: colors.primary,
           symbolSize: 14,
           symbolShape: 'circle',

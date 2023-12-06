@@ -1,7 +1,10 @@
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, ListItem, Typography, useTheme } from '@mui/material';
 import Radar from '../components/radar';
-import { total } from '../data/radarData';
 import { tokens } from '../theme';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import { shampoos } from '../data/radarData';
 
 const TopDogShampoos = () => {
   const theme = useTheme();
@@ -10,29 +13,75 @@ const TopDogShampoos = () => {
   const styles = {
     container: {
       height: '100%',
-      mx: '100px',
-      background: colors.greenAccent[400],
-      borderRadius: '50% / 20% 40% 20% 40%',
+      maxWidth: '100vw',
+      mt: '20px',
+      mx: '170px',
+    },
+    headerWrapper: {
+      display: 'flex',
+      justifyContent: 'center',
+      mt: '20px',
+    },
+    headerText: {
+      fontSize: '4rem',
+    },
+    content1: {
+      mt: '40px',
     },
     radarWrapper: {
       height: '400px',
-      width: '1000px',
-      mb: '3em',
-      mr: '400px',
+      width: '600px',
+      flex: 2,
+      background: colors.greenAccent[400],
+      borderRadius: '50% / 20% 40% 20% 40%',
     },
-    score: {
-      color: colors.blueAccent[200],
-      fontSize: '3em',
+    toggleList: {
       flex: 1,
-      pb: '1em',
+      p: '35px',
+      ml: '50px',
+      background: colors.blueAccent[600],
+      borderRadius: '50% / 20% 20% 20% 20%',
     },
+    shampooList: {
+      textAlign: 'center',
+      fontSize: '3em',
+      flex: 2,
+      opacity: '90%',
+    },
+    switch: {
+      mt: '2px',
+      flex: 1,
+    },
+  };
+
+  const ListItem = ({ item }) => {
+    return (
+      <Box display="flex">
+        <Typography sx={styles.shampooList}>{item}</Typography>
+        <FormGroup sx={{ ml: '30px' }}>
+          <FormControlLabel
+            control={<Switch defaultChecked size="large" sx={styles.switch} />}
+          />
+        </FormGroup>
+      </Box>
+    );
   };
 
   return (
     <Box sx={styles.container}>
-      <Box display="flex">
-        <Box sx={styles.radarWrapper}>
-          <Radar />
+      <Box sx={styles.headerWrapper}>
+        <Typography sx={styles.headerText}>Our Top 5 Picks</Typography>
+      </Box>
+      <Box sx={styles.content1}>
+        <Box display="flex">
+          <Box sx={styles.radarWrapper}>
+            <Radar />
+          </Box>
+          <Box sx={styles.toggleList}>
+            {shampoos.map((item, index) => {
+              return <ListItem key={index} item={item} />;
+            })}
+          </Box>
         </Box>
       </Box>
     </Box>
