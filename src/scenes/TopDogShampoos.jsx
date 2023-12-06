@@ -1,30 +1,31 @@
 import { useTheme } from '@emotion/react';
 import { Box, Typography } from '@mui/material';
-import { tokens } from '../theme';
 import Radar from '../components/radar';
 
 const styles = {
-  radar: {
+  container: {
+    mt: 4,
+  },
+  radarWrapper: {
     height: '250px',
     justifyContent: 'left',
     width: '400px',
   },
 };
 const TopDogShampoos = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-
   return (
-    <Box className="shampoos-container" mt={4}>
+    <Box sx={styles.container}>
       <Box>
         <Typography variant="h1">Stupid Dog Shampoo Co.</Typography>
       </Box>
       <Box display="flex">
-        <Box sx={styles.radar}>
+        <Box sx={styles.radarWrapper}>
           <Radar />
         </Box>
-        <Box>
-          <Typography></Typography>
+        <Box
+          sx={{ minWidth: '20em', minHeight: '20em', backgroundColor: 'red' }}
+        >
+          <Typography>Box</Typography>
         </Box>
       </Box>
     </Box>
