@@ -42,6 +42,7 @@ const styles = {
       my: '2.5em',
     },
     link: {
+      mt: 0,
       fontSize: '3em',
       textDecoration: 'none',
       color: 'black',
@@ -83,11 +84,7 @@ const Topical = () => {
         <Item item={item1} content={item1Content} />
         <Box sx={styles.content.linkContainer}>
           <Typography>
-            <Link
-              className="link"
-              style={styles.content.link}
-              to="/topicals/shampoos"
-            >
+            <Link style={styles.content.link} to="/topicals/shampoos">
               Check out our top rated shampoos!
             </Link>
           </Typography>
