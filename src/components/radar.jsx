@@ -1,24 +1,17 @@
 import { ResponsiveRadar } from '@nivo/radar';
-import { data } from '../data/radarData';
+import { shampooData, shampoos } from '../data/data';
 import { tokens } from '../theme';
 import { useTheme } from '@mui/material';
 
-const Radar = () => {
+const Radar = ({ data, keys, indexBy }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  let keys = [
-    'Wahl USA',
-    "Burt's Bees",
-    'Arm & Hammer',
-    'Honest Paws',
-    'Lilian Ruff',
-  ];
   return (
     <ResponsiveRadar
       data={data}
       keys={keys}
-      indexBy="metric"
+      indexBy={indexBy}
       valueFormat=">-.0f"
       margin={{ top: 60, right: 60, bottom: 60, left: 90 }}
       borderColor={{ from: 'color' }}
@@ -34,7 +27,7 @@ const Radar = () => {
         {
           anchor: 'top-left',
           direction: 'column',
-          translateX: -75,
+          translateX: -88,
           translateY: 10,
           itemWidth: -10,
           itemHeight: 20,

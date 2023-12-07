@@ -1,5 +1,5 @@
-export const shampoos = [
-  'Whal USA',
+export const shampooKeys = [
+  'Wahl USA',
   "Burt's Bees",
   'Arm & Hammer',
   'Honest Paws',

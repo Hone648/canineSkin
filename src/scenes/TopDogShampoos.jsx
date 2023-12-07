@@ -1,10 +1,10 @@
-import { Box, ListItem, Typography, useTheme } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import Radar from '../components/radar';
 import { tokens } from '../theme';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import { shampoos } from '../data/radarData';
+import { shampooKeys, shampooData } from '../data/data';
 
 const TopDogShampoos = () => {
   const theme = useTheme();
@@ -26,7 +26,7 @@ const TopDogShampoos = () => {
       fontSize: '4rem',
     },
     content1: {
-      mt: '40px',
+      mt: '10px',
     },
     radarWrapper: {
       height: '400px',
@@ -37,6 +37,7 @@ const TopDogShampoos = () => {
     },
     toggleList: {
       flex: 1,
+      mt: '130px',
       p: '35px',
       ml: '50px',
       background: colors.blueAccent[600],
@@ -44,7 +45,7 @@ const TopDogShampoos = () => {
     },
     shampooList: {
       textAlign: 'center',
-      fontSize: '3em',
+      fontSize: '1.5em',
       flex: 2,
       opacity: '90%',
     },
@@ -75,10 +76,10 @@ const TopDogShampoos = () => {
       <Box sx={styles.content1}>
         <Box display="flex">
           <Box sx={styles.radarWrapper}>
-            <Radar />
+            <Radar data={shampooData} keys={shampooKeys} indexBy="category" />
           </Box>
           <Box sx={styles.toggleList}>
-            {shampoos.map((item, index) => {
+            {shampooKeys.map((item, index) => {
               return <ListItem key={index} item={item} />;
             })}
           </Box>
