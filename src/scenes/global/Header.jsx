@@ -12,7 +12,6 @@ import {
 import Logo from '../../images/canineSkinLogo.png';
 import MailIcon from '@mui/icons-material/Mail';
 import { useTheme } from '@emotion/react';
-import { tokens } from '../../theme';
 import Tooltip from '@mui/material/Tooltip';
 import { useState, useEffect } from 'react';
 import SubscriptionForm from '../../components/SubscriptionForm';
@@ -49,16 +48,11 @@ const Header = () => {
         <Tooltip
           disableFocusListener
           arrow
-          title={<Typography variant="h4">Subscribe</Typography>}
+          title={<Typography>Subscribe</Typography>}
         >
           <IconButton size="large" onClick={handleClickOpen}>
             <MailIcon />
           </IconButton>
-          <SubscriptionForm
-            open={open}
-            handleClose={handleClose}
-            handleClickOpen={handleClickOpen}
-          />
         </Tooltip>
       </Grid>
     </Grid>

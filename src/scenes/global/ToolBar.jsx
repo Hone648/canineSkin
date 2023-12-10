@@ -44,6 +44,7 @@ const ToolBar = () => {
             display: { xs: 'flex' },
             justifyContent: { xs: 'none', sm: 'space-around' },
             flexWrap: 'wrap',
+            backgroundColor: colors.greenAccent[300],
           }}
         >
           {pages.map((page) => (
@@ -55,8 +56,8 @@ const ToolBar = () => {
                     variant="h4"
                     color={
                       selected === page.title
-                        ? colors.greenAccent[600]
-                        : colors.blueAccent[900]
+                        ? colors.blueAccent[600]
+                        : colors.greenAccent[900]
                     }
                   >
                     {page.title}

@@ -3,13 +3,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: bo;
+  box-sizing: border-box;
 }
-html,
-body,
-#root{
-  background-color: #c2c2c2;
-}
+
 .app {
   background-color: #f0f0f0;
   font-family: 'Source Sans 3', sans-serif;

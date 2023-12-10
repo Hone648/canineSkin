@@ -1,17 +1,33 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import Radar from '../components/radar';
 import { tokens } from '../theme';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { shampooKeys, shampooData } from '../data/data';
+import { useState } from 'react';
 
 const TopDogShampoos = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
+  const [keys, setKeys] = useState(shampooKeys);
+  const [checked, setChecked] = useState([
+    {
+      0: true,
+    },
+    {
+      1: true,
+    },
+    {
+      2: true,
+    },
+    {
+      3: true,
+    },
+    {
+      4: true,
+    },
+  ]);
   const styles = {
-    container: {
+    shampoosContainer: {
       height: '100%',
       maxWidth: '100vw',
       mt: '20px',
@@ -20,68 +36,71 @@ const TopDogShampoos = () => {
     headerWrapper: {
       display: 'flex',
       justifyContent: 'center',
-      mt: '20px',
+      background: colors.blueAccent[600],
+      borderRadius: '50% / 10% 50% 10% 50%',
     },
     headerText: {
-      fontSize: '4rem',
+      fontSize: '2.8rem',
+      textDecoration: 'underline',
+    },
+    topFiveWrapper: {
+      justifyContent: 'space-around',
+      mt: '20px',
+    },
+    topFiveItems: {
+      fontSize: '1rem',
+      color: colors.greenAccent[200],
+    },
+    topFiveSwitch: {
+      color: 'warning',
     },
     content1: {
-      mt: '10px',
+      mt: '0px',
     },
     radarWrapper: {
-      height: '400px',
+      height: '500px',
       width: '600px',
-      flex: 2,
-      background: colors.greenAccent[400],
-      borderRadius: '50% / 20% 40% 20% 40%',
-    },
-    toggleList: {
       flex: 1,
-      mt: '130px',
-      p: '35px',
-      ml: '50px',
-      background: colors.blueAccent[600],
-      borderRadius: '50% / 20% 20% 20% 20%',
     },
-    shampooList: {
+    switchWrapper: {
       textAlign: 'center',
-      fontSize: '1.5em',
-      flex: 2,
-      opacity: '90%',
     },
-    switch: {
-      mt: '2px',
-      flex: 1,
-    },
-  };
-
-  const ListItem = ({ item }) => {
-    return (
-      <Box display="flex">
-        <Typography sx={styles.shampooList}>{item}</Typography>
-        <FormGroup sx={{ ml: '30px' }}>
-          <FormControlLabel
-            control={<Switch defaultChecked size="large" sx={styles.switch} />}
-          />
-        </FormGroup>
-      </Box>
-    );
   };
 
   return (
-    <Box sx={styles.container}>
-      <Box sx={styles.headerWrapper}>
-        <Typography sx={styles.headerText}>Our Top 5 Picks</Typography>
+    <Box className="shampoos-container" sx={styles.shampoosContainer}>
+      <Box className="shampoos-header-wrapper" sx={styles.headerWrapper}>
+        <Typography sx={styles.headerText}>Our Top Rated Shampoos</Typography>
       </Box>
-      <Box sx={styles.content1}>
+      <Box
+        className="shampoos-top5-wrapper"
+        display="flex"
+        sx={styles.topFiveWrapper}
+      >
+        {shampooKeys.map((item, index) => {
+          return (
+            <div key={index}>
+              <Box>
+                <Typography sx={styles.topFiveItems} key={index}>
+                  {index + 1}. {item}
+                </Typography>
+              </Box>
+              <Box sx={styles.switchWrapper}>
+                <Switch
+                  // checked={checked[index]}
+                  sx={styles.topFiveSwitch}
+                  defaultChecked
+                  size="small"
+                />
+              </Box>
+            </div>
+          );
+        })}
+      </Box>
+      <Box className="content-1" sx={styles.content1}>
         <Box display="flex">
-          <Box sx={styles.radarWrapper}>
+          <Box className="radar-wrapper" sx={styles.radarWrapper}>
             <Radar data={shampooData} keys={shampooKeys} indexBy="category" />
-          </Box>
-          <Box sx={styles.toggleList}>
-            {shampooKeys.map((item, index) => {
-              return <ListItem key={index} item={item} />;
-            })}
           </Box>
         </Box>
       </Box>
