@@ -100,7 +100,7 @@ const TopDogShampoos = () => {
       <Box className="content-1" sx={styles.content1}>
         <Box display="flex">
           <Box className="radar-wrapper" sx={styles.radarWrapper}>
-            <Radar data={shampooData} keys={shampooKeys} indexBy="category" />
+            <Radar data={shampooData} keys={keys} indexBy="category" />
           </Box>
         </Box>
       </Box>

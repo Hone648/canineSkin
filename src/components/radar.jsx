@@ -1,5 +1,4 @@
 import { ResponsiveRadar } from '@nivo/radar';
-import { shampooData, shampoos } from '../data/data';
 import { tokens } from '../theme';
 import { useTheme } from '@mui/material';
 
